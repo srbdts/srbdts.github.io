@@ -23,7 +23,7 @@
 	</head>
 <body style="margin: 0px; overflow: hidden;">
 
-<a-scene embedded toggle-pikachu vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false;">
+<a-scene embedded toggle-pikachu>
 
     <a-assets>
 	<a-asset-item id="pikachu" src="./assets/pikachu/pikachu.gltf"></a-asset-item>
@@ -36,7 +36,7 @@
                     rotation="45 180 0"
                     scale="0.05 0.05 0.05"
                     gltf-model="#pikachu"
-		    visible="false">
+		    visible="true">
         </a-entity>
 	<a-entity   id="pokeball-entity"
 		    position="0 0 2" 
@@ -49,10 +49,7 @@
     <a-entity camera look-controls mouse-cursor></a-entity>
     
 </a-scene>
-<button type="button">Click Me!</button> 
 </body>
-
-	
 
 </html>
 
