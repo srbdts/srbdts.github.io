@@ -19,7 +19,8 @@
 		    position="0 0 0" 
                     rotation="45 180 0"
                     scale="0.05 0.05 0.05"
-                    gltf-model="#pikachu">
+                    gltf-model="#pikachu"
+		    visible="false">
         </a-entity>
 	<a-entity   id="pokeball-entity"
 		    position="0 0 2" 
@@ -36,11 +37,14 @@
 </body><
 <script>
 	document.querySelector('#pokeball-entity').addEventListener('click', function () {
+		console.log("processing click");
 		var pikachue = document.querySelector('#pikachu-entity');
-		if (pickachue.getAttribute("visible")== true) {
-			pickachue.setAttribute("visible") = false;
+		if (pickachue.getAttribute("visible") == true) {
+			pickachue.setAttribute("visible",false);
+			console.log("making pickachu invisible");
 		} else {
-			pickachue.setAttribute("visible") = true;
+			pickachue.setAttribute("visible",true);
+			console.log("making pickachu visible");
 		}
 	});
 </script>
