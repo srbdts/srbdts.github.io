@@ -10,6 +10,7 @@
 
     <a-assets>
 	<a-asset-item id="pikachu" src="./assets/pikachu/pikachu.gltf"></a-asset-item>
+	<a-asset-item id="pokeball" src="./assets/pokeball.gltf"></a-asset-item>
 </a-assets>
     
     <a-marker type="pattern" url="./assets/kanji.patt">
@@ -17,6 +18,11 @@
                     rotation="45 180 0"
                     scale="0.05 0.05 0.05"
                     gltf-model="#pikachu">
+        </a-entity>
+	<a-entity   position="0 0.3 0" 
+                    rotation="0 0 0"
+                    scale="0.05 0.05 0.05"
+                    gltf-model="#pokeball">
         </a-entity>
     </a-marker>
     
