@@ -7,6 +7,7 @@
 <a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false;">
 
     <a-assets>
+	<a-asset-item id="bulbasaur-export" src="./assets/bulbasaur/bulbasaur.glb"></a-asset-item>
 	<a-asset-item id="bulbasaur" src="./assets/bulbasaur/bulbasaur.obj"></a-asset-item>
 	<a-asset-item id="bulbasaur-mtl" src="./assets/bulbasaur/bulbasaur.mtl"></a-asset-item>
 </a-assets>
@@ -15,7 +16,7 @@
         <a-entity   position="0 0 0" 
                     rotation="0 180 0"
                     scale="0.15 0.15 0.15"
-                    obj-model="obj: #bulbasaur">
+                    gltf-model="#bulbasaur-export">
         </a-entity>
     </a-marker>
     
