@@ -7,13 +7,15 @@
 
     <a-assets>
 	<a-asset-item id="bulbasaur" src="./assets/bulbasaur/bulbasaur.obj"></a-asset-item>
+	<a-asset-item id="bulbasaur-mtl" src="./assets/bulbasaur/bulbasaur.mtl"></a-asset-item>
+
 </a-assets>
     
     <a-marker type="pattern" url="./assets/kanji.patt">
         <a-entity   position="0 0.1 0" 
-                    rotation="0 0 0"
+                    rotation="45 180 0"
                     scale="0.15 0.15 0.15"
-                    obj-model="obj: #bulbasaur" >
+                    obj-model="obj: #bulbasaur; mtl: #bulbasaur-mtl" >
         </a-entity>
     </a-marker>
     
