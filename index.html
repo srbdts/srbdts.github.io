@@ -4,21 +4,21 @@
 <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
  <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script>
-	<script>
+<script>
   AFRAME.registerComponent('toggle-pikachu', {
     init: function() {
 	document.querySelector('#pokeball-entity').addEventListener('click', function () {
 		console.log("processing click");
 		var pikachue = document.querySelector('#pikachu-entity');
-		if (pickachue.getAttribute("visible") == false) {
-			pickachue.setAttribute("visible",true);
+		if (pikachue.getAttribute("visible") == false) {
+			pikachue.setAttribute("visible",true);
 			console.log("making pickachu visible");
 		} else {
-			pickachue.setAttribute("visible",false);
+			pikachue.setAttribute("visible",false);
 			console.log("making pickachu invisible");
 		}
 	});
-});
+}});
 </script>
 	</head>
 <body style="margin: 0px; overflow: hidden;">
@@ -50,7 +50,7 @@
     
 </a-scene>
 <button type="button">Click Me!</button> 
-</body><
+</body>
 
 	
 
