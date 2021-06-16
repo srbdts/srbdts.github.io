@@ -7,14 +7,15 @@
 <a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false;">
 
     <a-assets>
-        <a-asset-item id="pikachu" src="./assets/magnemite/scene.gltf"></a-asset-item>
+	<a-asset-item id="bulbasaur" src="./assets/bulbasaur/bulbasaur.obj"></a-asset-item>
+        <a-asset-item id="pikachu" src="./assets/pikachu/pikachu.gltf"></a-asset-item>
 	</a-assets>
     
     <a-marker type="pattern" url="./assets/kanji.patt">
         <a-entity   position="0 0 0" 
                     rotation="0 180 0"
                     scale="0.05 0.05 0.05"
-                    gltf-model="#pikachu" >
+                    gltf-model="#bulbasaur" >
         </a-entity>
     </a-marker>
     
