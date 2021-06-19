@@ -56,6 +56,7 @@ AFRAME.registerComponent("gesture-handler", {
   processClick: function (event) {
     if (this.isVisible) {
       this.el.object3D.scale.x = 10 * this.initialScale.x;
+    }
   },
 
   handleScale: function (event) {
