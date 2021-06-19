@@ -11,7 +11,7 @@ AFRAME.registerComponent("gesture-handler", {
   init: function () {
     this.handleScale = this.handleScale.bind(this);
     this.handleRotation = this.handleRotation.bind(this);
-    this.handleClick = this.handleClock.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
 
     this.isVisible = false;
     this.initialScale = this.el.object3D.scale.clone();
@@ -30,18 +30,18 @@ AFRAME.registerComponent("gesture-handler", {
     if (this.data.enabled) {
       this.el.sceneEl.addEventListener("onefingermove", this.handleRotation);
       this.el.sceneEl.addEventListener("twofingermove", this.handleScale);
-      this.el.sceneEl.addEventListener("touchstart", this.handleClick);
+      // this.el.sceneEl.addEventListener("touchstart", this.handleClick);
     } else {
       this.el.sceneEl.removeEventListener("onefingermove", this.handleRotation);
       this.el.sceneEl.removeEventListener("twofingermove", this.handleScale);
-      this.el.sceneEl.removeEventListener("touchstart", this.handleClick);
+       // this.el.sceneEl.removeEventListener("touchstart", this.handleClick);
     }
   },
 
   remove: function () {
     this.el.sceneEl.removeEventListener("onefingermove", this.handleRotation);
     this.el.sceneEl.removeEventListener("twofingermove", this.handleScale);
-    this.el.sceneEl.removeEventListener("touchstart", this.handleClick);
+    // this.el.sceneEl.removeEventListener("touchstart", this.handleClick);
   },
 
   handleRotation: function (event) {
@@ -53,21 +53,21 @@ AFRAME.registerComponent("gesture-handler", {
     }
   },
   
-  handleClick: function (event) {
-    if (this.isVisible) {
-      var pikachu = document.getElementById("element-pikachu");
-      var jeroen = document.getElementById("element-jeroen");
-      if (pikachu.getAttribute("visible") == true){
-        this.el.object3D.scale.x = 1 * this.initialScale.x;
-        pikachu.setAttribute("visible",false);
-        jeroen.setAttribute("visible",true);
-      } else {
-        this.el.object3D.scale.x = 1 * this.initialScale.x;
-        pikachu.setAttribute("visible",true);
-        jeroen.setAttribute("visible",true);
-      }          
-    }
-  },
+  // handleClick: function (event) {
+  //  if (this.isVisible) {
+  //    var pikachu = document.getElementById("element-pikachu");
+  //    var jeroen = document.getElementById("element-jeroen");
+  //    if (pikachu.getAttribute("visible") == true){
+  //      this.el.object3D.scale.x = 1 * this.initialScale.x;
+  //      pikachu.setAttribute("visible",false);
+  //      jeroen.setAttribute("visible",true);
+  //    } else {
+  //      this.el.object3D.scale.x = 1 * this.initialScale.x;
+  //      pikachu.setAttribute("visible",true);
+  //      jeroen.setAttribute("visible",true);
+  //    }          
+  //  }
+  //},
 
   handleScale: function (event) {
     if (this.isVisible) {
