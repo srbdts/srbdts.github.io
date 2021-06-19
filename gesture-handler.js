@@ -30,18 +30,18 @@ AFRAME.registerComponent("gesture-handler", {
     if (this.data.enabled) {
       this.el.sceneEl.addEventListener("onefingermove", this.handleRotation);
       this.el.sceneEl.addEventListener("twofingermove", this.handleScale);
-      this.el.sceneEl.addEventListener("touchstart", this.processClick);
+      this.el.sceneEl.addEventListener("touchstart", this.handleClick);
     } else {
       this.el.sceneEl.removeEventListener("onefingermove", this.handleRotation);
       this.el.sceneEl.removeEventListener("twofingermove", this.handleScale);
-      this.el.sceneEl.removeEventListener("touchstart", this.processClick);
+      this.el.sceneEl.removeEventListener("touchstart", this.handleClick);
     }
   },
 
   remove: function () {
     this.el.sceneEl.removeEventListener("onefingermove", this.handleRotation);
     this.el.sceneEl.removeEventListener("twofingermove", this.handleScale);
-    this.el.sceneEl.removeEventListener("touchstart", this.processClick);
+    this.el.sceneEl.removeEventListener("touchstart", this.handleClick);
   },
 
   handleRotation: function (event) {
@@ -53,7 +53,7 @@ AFRAME.registerComponent("gesture-handler", {
     }
   },
   
-  processClick: function (event) {
+  handleClick: function (event) {
     if (this.isVisible) {
       this.el.object3D.scale.x = 10 * this.initialScale.x;
     }
