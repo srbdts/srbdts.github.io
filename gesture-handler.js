@@ -58,11 +58,13 @@ AFRAME.registerComponent("gesture-handler", {
       var pikachu = document.getElementById("element-pikachu");
       var jeroen = document.getElementById("element-jeroen");
       if (pikachu.getAttribute("visible") == true){
-        pikachu.setAttribute("visible",false);
+        this.el.object3D.scale.x = 2 * this.initialScale.x;
+        pikachu.setAttribute("visible",true);
         jeroen.setAttribute("visible",true);
       } else {
+        this.el.object3D.scale.x = 0,5 * this.initialScale.x;
         pikachu.setAttribute("visible",true);
-        jeroen.setAttribute("visible",false);
+        jeroen.setAttribute("visible",true);
       }          
     }
   },
