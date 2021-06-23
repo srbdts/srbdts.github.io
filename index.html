@@ -27,10 +27,11 @@
     >
     </a-asset-item>
      <img id="jeroen" src="assets/jeroen.png">
+     <img id="opdracht_1_tekst" src="assets/opdracht_1_tekst.png">
+    <img id="opdracht_1_foto" src="assets/opracht_1_foto.jpg">
   </a-assets>
 
-  <a-marker
-    preset="hiro"
+  <a-marker type="barcode" value="0"
     raycaster="objects: .clickable"
     emitevents="true"
     cursor="fuse: false; rayOrigin: mouse;"
@@ -49,7 +50,7 @@
         <a-box id="element-jeroen"
                position="0 0 0"
                scale="1.5 1.5 1.5"
-               multisrc="srcs:#jeroen,#jeroen,#jeroen,#jeroen,#jeroen,#jeroen"
+               multisrc="srcs:#jeroen,#jeroen,#jeroen,#jeroen,#opdracht_1_foto,#opddracht_1_tekst"
                material="transparent: true; opacity: 0.95; side: double;"
                class="clickable"
                gesture-handler
