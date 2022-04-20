@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Sara Budts">
+    <title>Leaderboard NLP</title>
+
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+  </head>
+  <body>
+    
+
+
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-2 col-lg-2 me-0 px-3" href="#">NLP - Shared Task</a>
+</header>
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-2">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <span data-feather="bar-chart-2"></span>
+             Total score
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="lb_in.html">
+              <span data-feather="bar-chart-2"></span>
+              IN
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="lb_out1.html">
+              <span data-feather="bar-chart-2"></span>
+              OUT1
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="lb_out2.html">
+              <span data-feather="bar-chart-2"></span>
+              OUT2
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="lb_textgain.html">
+              <span data-feather="bar-chart-2"></span>
+              Textgain
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="col-md-10 ms-sm-auto px-md-1">
+
+
+      <h1 style="padding:10px">Leaderboard Out-domain 2</h1>
+
+
+
+      <div class="table-responsive" style="padding:10px">
+        <table class="table table-sm table-hover">
+          <thead>
+            <tr>
+              <th scope="col" class="text-center">#</th>
+              <th scope="col">TEAM</th>
+              <th scope="col">OUT2</th>
+            </tr>
+          </thead>
+          <tbody>
+
+<tr>
+  <td class='text-center' style='background-color:#FFD700;color:black'>1</td>
+  <td>Still processing Ⓝ</td>
+  <td>0.909</td>
+</tr>
+<tr class='text-primary'>
+  <td class='text-center'></td>
+  <td>HateBert Ⓝ</td>
+  <td>0.907</td>
+</tr>
+<tr>
+  <td class='text-center' style='background-color:#C0C0C0;color:black'>2</td>
+  <td>Gradient descent into madness Ⓝ</td>
+  <td>0.9</td>
+</tr>
+<tr class='text-primary'>
+  <td class='text-center'></td>
+  <td>Regular Bert Ⓝ</td>
+  <td>0.896</td>
+</tr>
+<tr>
+  <td class='text-center' style='background-color:#CF7F32;color:black'>3</td>
+  <td>Gradient descent into madness</td>
+  <td>0.872</td>
+</tr>
+<tr class='text-primary'>
+  <td class='text-center'></td>
+  <td>Spacy BOW-model</td>
+  <td>0.86</td>
+</tr>
+<tr>
+  <td class='text-center'>4</td>
+  <td>Andrea Fraticelli</td>
+  <td>0.854</td>
+</tr>
+<tr>
+  <td class='text-center'>5</td>
+  <td>CV = 3</td>
+  <td>0.842</td>
+</tr>
+<tr>
+  <td class='text-center'>6</td>
+  <td>Coffee overflow</td>
+  <td>0.833</td>
+</tr>
+<tr>
+  <td class='text-center'>7</td>
+  <td>Still processing</td>
+  <td>0.809</td>
+</tr>
+<tr>
+  <td class='text-center'>8</td>
+  <td>Light at the end of the pipeline Ⓝ</td>
+  <td>0.799</td>
+</tr>
+<tr>
+  <td class='text-center'>9</td>
+  <td>Coffee overflow Ⓝ</td>
+  <td>0.758</td>
+</tr>
+<tr class='text-primary'>
+  <td class='text-center'></td>
+  <td>Most frequent class</td>
+  <td>0.33</td>
+</tr>
+
+
+
+
+
+
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+      <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
+  </body>
+</html>
