@@ -1,0 +1,55 @@
+<!doctype HTML>
+<html>
+	<head>
+<script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+ <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script>
+<script>
+  AFRAME.registerComponent('toggle-pikachu', {
+    init: function() {
+	document.querySelector('#pokeball-entity').addEventListener('click', function () {
+		console.log("processing click");
+		var pikachue = document.querySelector('#pikachu-entity');
+		if (pikachue.getAttribute("visible") == false) {
+			pikachue.setAttribute("visible",true);
+			console.log("making pickachu visible");
+		} else {
+			pikachue.setAttribute("visible",false);
+			console.log("making pickachu invisible");
+		}
+	});
+}});
+</script>
+	</head>
+<body style="margin: 0px; overflow: hidden;">
+
+<a-scene embedded toggle-pikachu>
+
+    <a-assets>
+	<a-asset-item id="pikachu" src="./assets/pikachu/pikachu.gltf"></a-asset-item>
+	<a-asset-item id="pokeball" src="./assets/pokeball.gltf"></a-asset-item>
+</a-assets>
+   
+    <a-marker type="pattern" url="./assets/kanji.patt">
+        <a-entity   id="pikachu-entity"
+		    position="0 0 0" 
+                    rotation="45 180 0"
+                    scale="0.05 0.05 0.05"
+                    gltf-model="#pikachu"
+		    visible="true">
+        </a-entity>
+	<a-entity   id="pokeball-entity"
+		    position="0 0 2" 
+                    rotation="270 180 0"
+                    scale="0.5 0.5 0.5"
+                    gltf-model="#pokeball">
+        </a-entity>
+    </a-marker>
+    
+    <a-entity camera look-controls mouse-cursor></a-entity>
+    
+</a-scene>
+</body>
+
+</html>
+
