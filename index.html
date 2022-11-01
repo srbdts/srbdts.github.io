@@ -6,7 +6,24 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/events.js"></script>
+    <script>
+    	AFRAME.registerComponent('markerhandler', {
+
+    init: function() {
+        const animatedMarker = document.querySelector("#animated-marker");
+        const aEntity = document.querySelector("#animated-model");
+
+        // every click, we make our model grow in size :)
+        animatedMarker.addEventListener('click', function(ev, target){
+            const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
+            if (aEntity && intersectedElement === aEntity) {
+                const scale = aEntity.getAttribute('scale');
+                Object.keys(scale).forEach((key) => scale[key] = scale[key] + 0.05);
+                aEntity.setAttribute('scale', scale);
+            }
+        });
+}});
+    </script>
     <script src="aframe-multisrc-component.js"></script>
     <script src="gesture-detector.js"></script>
     <script src="gesture-handler.js"></script>
