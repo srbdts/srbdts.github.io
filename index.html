@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/events.js"></script>
     <script src="aframe-multisrc-component.js"></script>
     <script src="gesture-detector.js"></script>
     <script src="gesture-handler.js"></script>
@@ -50,21 +51,13 @@
 
   </a-assets>
 
-  <a-marker type="pattern" url="assets/A.patt"
-    raycaster="objects: .clickable"
-    emitevents="true"
-    cursor="fuse: false; rayOrigin: mouse;"
-    id="markerA"
-  >
+  <a-marker markerhandler emitevents="true" cursor="rayOrigin:mouse" id="animated-marker" type="pattern" url="assets/A.patt">
     <a-entity
-      id="element-ghost"
+      id="animated-model"
       gltf-model="#ghost"
       position="0 0 0"
       rotation="-60 0 0"
       scale="0.5 0.5 0.5"
-      class="clickable"
-      gesture-handler
-      visible="true"
     ></a-entity>
   </a-marker>
   
