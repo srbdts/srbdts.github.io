@@ -23,6 +23,7 @@
         });
 }});
     </script>
+    <script src="aframe-multisrc-component.js"></script>
   </head>
 
   <body>
@@ -31,6 +32,7 @@
   embedded
   renderer="logarithmicDepthBuffer: true;"
   vr-mode-ui="enabled: false"
+  gesture-detector
   id="scene"
 >
   <a-assets>
@@ -38,6 +40,12 @@
       id="ghost"
       src="./assets/cute_ghost/scene.gltf"
     >
+    <a-asset-item
+      id="pikachu"
+      src="./assets/pikachu/pikachu.gltf"
+    >
+    </a-asset-item>
+  </a-assets>
 
   <a-marker markerhandler emitevents="true" cursor="rayOrigin: mouse" id="animated-marker" type="pattern" url="assets/A.patt">
     <a-entity
