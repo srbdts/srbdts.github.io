@@ -22,6 +22,10 @@
 >
   <a-assets>
     <a-asset-item
+      id="ghost"
+      src="./assets/cute_ghost/scene.gltf"
+    >
+    <a-asset-item
       id="pikachu"
       src="./assets/pikachu/pikachu.gltf"
     >
@@ -53,8 +57,8 @@
     id="markerA"
   >
     <a-entity
-      id="element-pikachu"
-      gltf-model="#pikachu"
+      id="element-ghost"
+      gltf-model="#ghost"
       position="0 0.8 0"
       rotation="0 180 0"
       scale="0.05 0.05 0.05"
@@ -62,15 +66,6 @@
       gesture-handler
       visible="true"
     ></a-entity>
-        <a-box id="element-jeroen"
-               position="0 0 0"
-               scale="1.5 1.5 1.5"
-               multisrc="srcs:#opdracht_1_tekst,#jeroen,#jeroen,#jeroen,#opdracht_1_foto,#jeroen"
-               material="transparent: false; side: double;"
-               class="clickable"
-               gesture-handler
-               visible="true"
-      ></a-box>
   </a-marker>
   
     <a-marker type="pattern" url="assets/B.patt"
