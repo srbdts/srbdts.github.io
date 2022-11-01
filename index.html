@@ -19,10 +19,8 @@
             const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
             if (aEntity && intersectedElement === aEntity) {
             	n_touches += 1;
-                const scale = aEntity.getAttribute('scale');
                 if ((n_touches % 4) == 0 ) {
-	                Object.keys(scale).forEach((key) => scale[key] = scale[key] + 0.1);
-	                aEntity.setAttribute('scale', scale);
+                	location.href = 'https://www.javascripttutorial.net/';
             }
             }
         });
