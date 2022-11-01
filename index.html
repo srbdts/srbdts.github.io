@@ -17,14 +17,12 @@
         animatedMarker.addEventListener('click', function(ev, target){
             const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
             if (aEntity && intersectedElement === aEntity) {
+            	console.log("grow")
             	location.assign('https://www.javascripttutorial.net/');
             }
         });
 }});
     </script>
-    <script src="aframe-multisrc-component.js"></script>
-    <script src="gesture-detector.js"></script>
-    <script src="gesture-handler.js"></script>
   </head>
 
   <body>
@@ -33,7 +31,6 @@
   embedded
   renderer="logarithmicDepthBuffer: true;"
   vr-mode-ui="enabled: false"
-  gesture-detector
   id="scene"
 >
   <a-assets>
@@ -41,32 +38,8 @@
       id="ghost"
       src="./assets/cute_ghost/scene.gltf"
     >
-    <a-asset-item
-      id="pikachu"
-      src="./assets/pikachu/pikachu.gltf"
-    >
-    </a-asset-item>
-     <img id="jeroen" src="assets/jeroen.png">
-     <img id="opdracht_1_tekst" src="assets/opdracht_1_tekst.png">
-    <img id="opdracht_1_foto" src="assets/opdracht_1_foto.jpg">
-     <img id="opdracht_2_tekst" src="assets/opdracht_2_tekst.png">
-    <img id="opdracht_2_foto" src="assets/opdracht_2_foto.jpg">
-     <img id="opdracht_3_tekst" src="assets/opdracht_3_tekst.png">
-    <img id="opdracht_3_foto" src="assets/opdracht_3_foto.jpg">  
-     <img id="opdracht_4_tekst" src="assets/opdracht_4_tekst.png">
-    <img id="opdracht_4_foto" src="assets/opdracht_4_foto.jpg">
-    <img id="opdracht_5_tekst" src="assets/opdracht_5_tekst.png">
-    <img id="opdracht_5_foto" src="assets/opdracht_5_foto.jpg">
-    <img id="opdracht_6_tekst" src="assets/opdracht_6_tekst.png">
-    <img id="opdracht_6_foto" src="assets/opdracht_6_foto.png">
-    <img id="gedicht_1" src="assets/gedicht_1.png">
-    <img id="gedicht_2" src="assets/gedicht_2.png">  
-    <img id="gedicht_emily" src="assets/gedicht_emily.png">  
 
-
-  </a-assets>
-
-  <a-marker markerhandler emitevents="true" cursor="rayOrigin:mouse" id="animated-marker" type="pattern" url="assets/A.patt">
+  <a-marker markerhandler emitevents="true" cursor="rayOrigin: mouse" id="animated-marker" type="pattern" url="assets/A.patt">
     <a-entity
       id="animated-model"
       gltf-model="#ghost"
@@ -76,142 +49,7 @@
     ></a-entity>
   </a-marker>
   
-    <a-marker type="pattern" url="assets/B.patt"
-    raycaster="objects: .clickable"
-    emitevents="true"
-    cursor="fuse: false; rayOrigin: mouse;"
-    id="markerB"
-  >
-    <a-entity
-      id="element-pikachu"
-      gltf-model="#pikachu"
-      position="0 0.8 0"
-      rotation="0 180 0"
-      scale="0.05 0.05 0.05"
-      class="clickable"
-      gesture-handler
-      visible="true"
-    ></a-entity>
-        <a-box id="element-jeroen"
-               position="0 0 0"
-               scale="1.5 1.5 1.5"
-               multisrc="srcs:#opdracht_2_tekst,#jeroen,#jeroen,#jeroen,#opdracht_2_foto,#jeroen"
-               material="transparent: false; side: double;"
-               class="clickable"
-               gesture-handler
-               visible="true"
-      ></a-box>
-  </a-marker>
-  
- 
-  <a-marker type="pattern" url="assets/C.patt"
-    raycaster="objects: .clickable"
-    emitevents="true"
-    cursor="fuse: false; rayOrigin: mouse;"
-    id="markerC"
-  >
-    <a-entity
-      id="element-pikachu"
-      gltf-model="#pikachu"
-      position="0 0.8 0"
-      rotation="0 180 0"
-      scale="0.05 0.05 0.05"
-      class="clickable"
-      gesture-handler
-      visible="true"
-    ></a-entity>
-        <a-box id="element-jeroen"
-               position="0 0 0"
-               scale="1.5 1.5 1.5"
-               multisrc="srcs:#opdracht_3_tekst,#jeroen,#jeroen,#jeroen,#opdracht_3_foto,#jeroen"
-               material="transparent: false; side: double;"
-               class="clickable"
-               gesture-handler
-               visible="true"
-      ></a-box>
-  </a-marker>
-  
-  
-  <a-marker type="pattern" url="assets/D.patt"
-    raycaster="objects: .clickable"
-    emitevents="true"
-    cursor="fuse: false; rayOrigin: mouse;"
-    id="markerA"
-  >
-    <a-entity
-      id="element-pikachu"
-      gltf-model="#pikachu"
-      position="0 0.8 0"
-      rotation="0 180 0"
-      scale="0.05 0.05 0.05"
-      class="clickable"
-      gesture-handler
-      visible="true"
-    ></a-entity>
-        <a-box id="element-jeroen"
-               position="0 0 0"
-               scale="1.5 1.5 1.5"
-               multisrc="srcs:#opdracht_4_tekst,#gedicht_1,#gedicht_2,#gedicht_emily,#opdracht_4_foto,#jeroen"
-               material="transparent: false; side: double;"
-               class="clickable"
-               gesture-handler
-               visible="true"
-      ></a-box>
-    
-  </a-marker>
-   <a-marker type="pattern" url="assets/F.patt"
-    raycaster="objects: .clickable"
-    emitevents="true"
-    cursor="fuse: false; rayOrigin: mouse;"
-    id="markerC"
-  >
-    <a-entity
-      id="element-pikachu"
-      gltf-model="#pikachu"
-      position="0 0.8 0"
-      rotation="0 180 0"
-      scale="0.05 0.05 0.05"
-      class="clickable"
-      gesture-handler
-      visible="true"
-    ></a-entity>
-        <a-box id="element-jeroen"
-               position="0 0 0"
-               scale="1.5 1.5 1.5"
-               multisrc="srcs:#opdracht_5_tekst,#jeroen,#jeroen,#jeroen,#opdracht_5_foto,#jeroen"
-               material="transparent: false; side: double;"
-               class="clickable"
-               gesture-handler
-               visible="true"
-      ></a-box>
-  </a-marker> 
-  
-    <a-marker preset="kanji"
-    raycaster="objects: .clickable"
-    emitevents="true"
-    cursor="fuse: false; rayOrigin: mouse;"
-    id="markerKanji"
-  >
-    <a-entity
-      id="element-pikachu"
-      gltf-model="#pikachu"
-      position="0 0.8 0"
-      rotation="0 180 0"
-      scale="0.05 0.05 0.05"
-      class="clickable"
-      gesture-handler
-      visible="true"
-    ></a-entity>
-        <a-box id="element-jeroen"
-               position="0 0 0"
-               scale="1.5 1.5 1.5"
-               multisrc="srcs:#opdracht_6_tekst,#jeroen,#jeroen,#jeroen,#opdracht_6_foto,#jeroen"
-               material="transparent: false; side: double;"
-               class="clickable"
-               gesture-handler
-               visible="true"
-      ></a-box>
-  </a-marker>
+
   
   <a-entity camera></a-entity>
 </a-scene>
