@@ -12,14 +12,18 @@
     init: function() {
         const animatedMarker = document.querySelector("#animated-marker");
         const aEntity = document.querySelector("#animated-model");
+        var n_touches = 0;
 
         // every click, we make our model grow in size :)
         animatedMarker.addEventListener('click', function(ev, target){
             const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
             if (aEntity && intersectedElement === aEntity) {
+            	n_touches += 1;
                 const scale = aEntity.getAttribute('scale');
-                Object.keys(scale).forEach((key) => scale[key] = scale[key] + 0.1);
-                aEntity.setAttribute('scale', scale);
+                if ((n_touches % 4) == 0 ) {
+	                Object.keys(scale).forEach((key) => scale[key] = scale[key] + 0.1);
+	                aEntity.setAttribute('scale', scale);
+            }
             }
         });
 }});
