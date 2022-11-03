@@ -8,13 +8,13 @@
 <body style="background:black">
 
 <div id="opdracht" style="height:100%;width:100%;color:red;display:block">
-	<h1 style="text-align:center;font-family:Trebuchet MS,sans-serif;">Goed zo!</h1>
-	<h3 style="text-align:center;color:orange;font-family:Trebuchet MS,sans-serif;">Jullie hebben me gevonden!
+	<h1 style="text-align:center;font-family:Trebuchet MS,sans-serif;">Prima! Jullie zijn er bijna!</h1>
+	<h3 style="text-align:center;color:orange;font-family:Trebuchet MS,sans-serif;">Dit is de laatste opdracht.
 	</h3>
-	<h3 style="text-align:center;color:orange;font-family:Trebuchet MS,sans-serif;">Voor de eerste opdracht moeten jullie laten zien dat jullie niet bang zijn in het donker. Doe je ogen toe en steek je handen uit. Welk voorwerp voel je?
+	<h3 style="text-align:center;color:orange;font-family:Trebuchet MS,sans-serif;">Spookjes mogen niet lachen als ze mensen bang gaan maken, want dat is niet eng. Kunnen jullie ons aankijken met een griezelig gezicht zonder te lachen? Probeer maar!
 	</h3>
 	<h3 style="text-align:center;color:red;font-family:Trebuchet MS,sans-serif;">
-	Geef het antwoord hier in:
+	Geef hier het paswoord in:
 	</h3><br><br>
 	<div style="text-align:center">
 	 <input type="text" id="antwoord" name="antwoord"><br><br>
@@ -32,7 +32,7 @@
 
 <div id="aanwijzing" style="height:100%;width:100%;display:none">
 	<h1 style="text-align:center;font-family:Trebuchet MS,sans-serif;color:red">Juist!</h1>
-	<h3 style="text-align:center;color:orange;font-family:Trebuchet MS,sans-serif;">De tweede opdracht mag je gaan zoeken in de speeltuin!
+	<h3 style="text-align:center;color:orange;font-family:Trebuchet MS,sans-serif;">We zijn zeker! Jullie zijn echte spookjes! Jullie beloning ligt X.
 	</h3>
 </div>
 </body>
@@ -48,7 +48,7 @@ knop.addEventListener("click", function(){
 		opdracht = document.getElementById('opdracht');
 		aanwijzing = document.getElementById('aanwijzing');
 		fout = document.getElementById("fout");
-		if (lowercase_stripped_antwoord == "pompoen"){
+		if (lowercase_stripped_antwoord == "spook"){
 			opdracht.style.display = "none";
 			fout.style.display = "none";
 			aanwijzing.style.display = "block";

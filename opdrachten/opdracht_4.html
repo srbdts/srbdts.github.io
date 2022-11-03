@@ -9,12 +9,12 @@
 
 <div id="opdracht" style="height:100%;width:100%;color:red;display:block">
 	<h1 style="text-align:center;font-family:Trebuchet MS,sans-serif;">Goed zo!</h1>
-	<h3 style="text-align:center;color:orange;font-family:Trebuchet MS,sans-serif;">Jullie hebben me gevonden!
+	<h3 style="text-align:center;color:orange;font-family:Trebuchet MS,sans-serif;">Hier volgt opdracht vier!
 	</h3>
-	<h3 style="text-align:center;color:orange;font-family:Trebuchet MS,sans-serif;">Voor de eerste opdracht moeten jullie laten zien dat jullie niet bang zijn in het donker. Doe je ogen toe en steek je handen uit. Welk voorwerp voel je?
+	<h3 style="text-align:center;color:orange;font-family:Trebuchet MS,sans-serif;">Als echte spookjes is het belangrijk dat jullie dicht bij mensen kunnen komen zonder dat ze je horen. Kunnen jullie dat? Laat maar zien in deze proef!
 	</h3>
 	<h3 style="text-align:center;color:red;font-family:Trebuchet MS,sans-serif;">
-	Geef het antwoord hier in:
+	Wat staat er op de puzzel? Geef het hier in:
 	</h3><br><br>
 	<div style="text-align:center">
 	 <input type="text" id="antwoord" name="antwoord"><br><br>
@@ -32,7 +32,7 @@
 
 <div id="aanwijzing" style="height:100%;width:100%;display:none">
 	<h1 style="text-align:center;font-family:Trebuchet MS,sans-serif;color:red">Juist!</h1>
-	<h3 style="text-align:center;color:orange;font-family:Trebuchet MS,sans-serif;">De tweede opdracht mag je gaan zoeken in de speeltuin!
+	<h3 style="text-align:center;color:orange;font-family:Trebuchet MS,sans-serif;">Voor de laatste opdracht moet je naar de fontein
 	</h3>
 </div>
 </body>
@@ -48,7 +48,7 @@ knop.addEventListener("click", function(){
 		opdracht = document.getElementById('opdracht');
 		aanwijzing = document.getElementById('aanwijzing');
 		fout = document.getElementById("fout");
-		if (lowercase_stripped_antwoord == "pompoen"){
+		if (lowercase_stripped_antwoord == "vleermuis"){
 			opdracht.style.display = "none";
 			fout.style.display = "none";
 			aanwijzing.style.display = "block";

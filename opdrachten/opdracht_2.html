@@ -8,13 +8,13 @@
 <body style="background:black">
 
 <div id="opdracht" style="height:100%;width:100%;color:red;display:block">
-	<h1 style="text-align:center;font-family:Trebuchet MS,sans-serif;">Goed zo!</h1>
-	<h3 style="text-align:center;color:orange;font-family:Trebuchet MS,sans-serif;">Jullie hebben me gevonden!
+	<h1 style="text-align:center;font-family:Trebuchet MS,sans-serif;">HOERA!</h1>
+	<h3 style="text-align:center;color:orange;font-family:Trebuchet MS,sans-serif;">Welkom bij opdracht twee!
 	</h3>
-	<h3 style="text-align:center;color:orange;font-family:Trebuchet MS,sans-serif;">Voor de eerste opdracht moeten jullie laten zien dat jullie niet bang zijn in het donker. Doe je ogen toe en steek je handen uit. Welk voorwerp voel je?
+	<h3 style="text-align:center;color:orange;font-family:Trebuchet MS,sans-serif;">Jullie zijn niet bang in het donker, daar ben ik blij om. Maar kunnen jullie ook vliegen? En durven jullie spoken in de hoogste toren?
 	</h3>
 	<h3 style="text-align:center;color:red;font-family:Trebuchet MS,sans-serif;">
-	Geef het antwoord hier in:
+	Doe de vliegproef en geef je antwoord hier in:
 	</h3><br><br>
 	<div style="text-align:center">
 	 <input type="text" id="antwoord" name="antwoord"><br><br>
@@ -32,7 +32,7 @@
 
 <div id="aanwijzing" style="height:100%;width:100%;display:none">
 	<h1 style="text-align:center;font-family:Trebuchet MS,sans-serif;color:red">Juist!</h1>
-	<h3 style="text-align:center;color:orange;font-family:Trebuchet MS,sans-serif;">De tweede opdracht mag je gaan zoeken in de speeltuin!
+	<h3 style="text-align:center;color:orange;font-family:Trebuchet MS,sans-serif;">De derde opdracht mag je gaan zoeken aan het bijenhotel!
 	</h3>
 </div>
 </body>
@@ -48,7 +48,7 @@ knop.addEventListener("click", function(){
 		opdracht = document.getElementById('opdracht');
 		aanwijzing = document.getElementById('aanwijzing');
 		fout = document.getElementById("fout");
-		if (lowercase_stripped_antwoord == "pompoen"){
+		if (lowercase_stripped_antwoord == "bezem"){
 			opdracht.style.display = "none";
 			fout.style.display = "none";
 			aanwijzing.style.display = "block";
