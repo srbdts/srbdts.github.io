@@ -11,7 +11,7 @@
 
     init: function() {
         const animatedMarker = document.querySelector("#animated-marker-a");
-        const aEntity = document.querySelector("#animated-model");
+        const aEntity = document.querySelector("#animated-model-a");
         var n_touches = 0;
 
         // every click, we make our model grow in size :)
@@ -32,7 +32,7 @@
 
     init: function() {
         const animatedMarker = document.querySelector("#animated-marker-b");
-        const aEntity = document.querySelector("#animated-model");
+        const aEntity = document.querySelector("#animated-model-b");
         var n_touches = 0;
 
         // every click, we make our model grow in size :)
@@ -53,7 +53,7 @@
 
     init: function() {
         const animatedMarker = document.querySelector("#animated-marker-c");
-        const aEntity = document.querySelector("#animated-model");
+        const aEntity = document.querySelector("#animated-model-c");
         var n_touches = 0;
 
         // every click, we make our model grow in size :)
@@ -74,7 +74,7 @@
 
     init: function() {
         const animatedMarker = document.querySelector("#animated-marker-d");
-        const aEntity = document.querySelector("#animated-model");
+        const aEntity = document.querySelector("#animated-model-d");
         var n_touches = 0;
 
         // every click, we make our model grow in size :)
@@ -91,11 +91,11 @@
 }});
     </script>
     <script>
-    	AFRAME.registerComponent('markerhandler-e', {
+    	AFRAME.registerComponent('markerhandler-f', {
 
     init: function() {
-        const animatedMarker = document.querySelector("#animated-marker-e");
-        const aEntity = document.querySelector("#animated-model");
+        const animatedMarker = document.querySelector("#animated-marker-f");
+        const aEntity = document.querySelector("#animated-model-f");
         var n_touches = 0;
 
         // every click, we make our model grow in size :)
@@ -133,7 +133,7 @@
 
   <a-marker markerhandler-a emitevents="true" cursor="rayOrigin: mouse" id="animated-marker-a" type="pattern" url="assets/A.patt">
     <a-entity
-      id="animated-model"
+      id="animated-model-a"
       gltf-model="#ghost"
       position="0 0 0"
       rotation="-60 0 0"
@@ -143,7 +143,7 @@
 
     <a-marker markerhandler-b emitevents="true" cursor="rayOrigin: mouse" id="animated-marker-b" type="pattern" url="assets/B.patt">
     <a-entity
-      id="animated-model"
+      id="animated-model-b"
       gltf-model="#ghost"
       position="0 0 0"
       rotation="-60 0 0"
@@ -153,7 +153,7 @@
 
     <a-marker markerhandler-c emitevents="true" cursor="rayOrigin: mouse" id="animated-marker-c" type="pattern" url="assets/C.patt">
     <a-entity
-      id="animated-model"
+      id="animated-model-c"
       gltf-model="#ghost"
       position="0 0 0"
       rotation="-60 0 0"
@@ -163,7 +163,7 @@
 
     <a-marker markerhandler-d emitevents="true" cursor="rayOrigin: mouse" id="animated-marker-d" type="pattern" url="assets/D.patt">
     <a-entity
-      id="animated-model"
+      id="animated-model-d"
       gltf-model="#ghost"
       position="0 0 0"
       rotation="-60 0 0"
@@ -173,7 +173,7 @@
 
     <a-marker markerhandler-f emitevents="true" cursor="rayOrigin: mouse" id="animated-marker-f" type="pattern" url="assets/F.patt">
     <a-entity
-      id="animated-model"
+      id="animated-model-f"
       gltf-model="#ghost"
       position="0 0 0"
       rotation="-60 0 0"
