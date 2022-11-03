@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>Gesture Interactions - A-Frame & AR.js</title>
@@ -7,12 +8,13 @@
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <script>
-    	AFRAME.registerComponent('markerhandler-a', {
+    	AFRAME.registerComponent('markerhandlera', {
 
     init: function() {
         const animatedMarkera = document.querySelector("#animated-marker-a");
         const aEntitya = document.querySelector("#animated-model-a");
         var n_touches = 0;
+        console.log("initialising A");
 
         // every click, we make our model grow in size :)
         animatedMarkera.addEventListener('click', function(ev, target){
@@ -29,12 +31,13 @@
         });
 }});
 
-    	AFRAME.registerComponent('markerhandler-b', {
+    	AFRAME.registerComponent('markerhandlerb', {
 
     init: function() {
         const animatedMarkerb = document.querySelector("#animated-marker-b");
         const aEntityb = document.querySelector("#animated-model-b");
         var n_touches = 0;
+        console.log("initialising B");
 
         // every click, we make our model grow in size :)
         animatedMarkerb.addEventListener('click', function(ev, target){
@@ -51,13 +54,13 @@
         });
 }});
 
-    	AFRAME.registerComponent('markerhandler-c', {
+    	AFRAME.registerComponent('markerhandlerc', {
 
     init: function() {
         const animatedMarkerc = document.querySelector("#animated-marker-c");
         const aEntityc = document.querySelector("#animated-model-c");
         var n_touches = 0;
-
+        console.log("initialising C");
         // every click, we make our model grow in size :)
         animatedMarkerc.addEventListener('click', function(ev, target){
             const intersectedElementc = ev && ev.detail && ev.detail.intersectedEl;
@@ -73,13 +76,13 @@
         });
 }});
 
-    	AFRAME.registerComponent('markerhandler-d', {
+    	AFRAME.registerComponent('markerhandlerd', {
 
     init: function() {
         const animatedMarkerd = document.querySelector("#animated-marker-d");
         const aEntityd = document.querySelector("#animated-model-d");
         var n_touches = 0;
-
+        console.log("initialising D");
         // every click, we make our model grow in -size :)
         animatedMarkerd.addEventListener('click', function(ev, target){
             const intersectedElementd = ev && ev.detail && ev.detail.intersectedEl;
@@ -95,13 +98,13 @@
         });
 }});
 
-    	AFRAME.registerComponent('markerhandler-f', {
+    	AFRAME.registerComponent('markerhandlerf', {
 
     init: function() {
         const animatedMarkerf = document.querySelector("#animated-marker-f");
         const aEntityf = document.querySelector("#animated-model-f");
         var n_touches = 0;
-
+        console.log("initialising F");
         // every click, we make our model grow in size :)
         animatedMarkerf.addEventListener('click', function(ev, target){
             const intersectedElementf = ev && ev.detail && ev.detail.intersectedEl;
@@ -137,7 +140,7 @@
     </a-asset-item>
   </a-assets>
 
-  <a-marker markerhandler-a emitevents="true" cursor="rayOrigin: mouse" id="animated-marker-a" type="pattern" url="assets/A.patt">
+  <a-marker markerhandlera emitevents="true" cursor="rayOrigin: mouse" id="animated-marker-a" type="pattern" url="assets/A.patt">
     <a-entity
       id="animated-model-a"
       gltf-model="#ghost"
@@ -147,7 +150,7 @@
     ></a-entity>
   </a-marker>
 
-    <a-marker markerhandler-b emitevents="true" cursor="rayOrigin: mouse" id="animated-marker-b" type="pattern" url="assets/B.patt">
+  <a-marker markerhandlerb emitevents="true" cursor="rayOrigin: mouse" id="animated-marker-b" type="pattern" url="assets/B.patt">
     <a-entity
       id="animated-model-b"
       gltf-model="#ghost"
@@ -157,7 +160,7 @@
     ></a-entity>
   </a-marker>
 
-    <a-marker markerhandler-c emitevents="true" cursor="rayOrigin: mouse" id="animated-marker-c" type="pattern" url="assets/C.patt">
+  <a-marker markerhandlerc emitevents="true" cursor="rayOrigin: mouse" id="animated-marker-c" type="pattern" url="assets/C.patt">
     <a-entity
       id="animated-model-c"
       gltf-model="#ghost"
@@ -167,7 +170,7 @@
     ></a-entity>
   </a-marker>
 
-    <a-marker markerhandler-d emitevents="true" cursor="rayOrigin: mouse" id="animated-marker-d" type="pattern" url="assets/D.patt">
+    <a-marker markerhandlerd emitevents="true" cursor="rayOrigin: mouse" id="animated-marker-d" type="pattern" url="assets/D.patt">
     <a-entity
       id="animated-model-d"
       gltf-model="#ghost"
@@ -175,9 +178,10 @@
       rotation="-60 0 0"
       scale="0.5 0.5 0.5"
     ></a-entity>
-  
+    </a-marker>
 
-    <a-marker markerhandler-f emitevents="true" cursor="rayOrigin: mouse" id="animated-marker-f" type="pattern" url="assets/F.patt">
+
+    <a-marker markerhandlerf emitevents="true" cursor="rayOrigin: mouse" id="animated-marker-f" type="pattern" url="assets/F.patt">
     <a-entity
       id="animated-model-f"
       gltf-model="#ghost"
@@ -187,7 +191,6 @@
     ></a-entity>
   </a-marker>
   
-  </a-marker>
   
   
   
