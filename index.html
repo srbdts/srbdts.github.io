@@ -10,14 +10,14 @@
     	AFRAME.registerComponent('markerhandler-a', {
 
     init: function() {
-        const animatedMarker = document.querySelector("#animated-marker-a");
-        const aEntity = document.querySelector("#animated-model-a");
+        const animatedMarkera = document.querySelector("#animated-marker-a");
+        const aEntitya = document.querySelector("#animated-model-a");
         var n_touches = 0;
 
         // every click, we make our model grow in size :)
-        animatedMarker.addEventListener('click', function(ev, target){
-            const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-            if (aEntity && intersectedElement === aEntity) {
+        animatedMarkera.addEventListener('click', function(ev, target){
+            const intersectedElementa = ev && ev.detail && ev.detail.intersectedEl;
+            if (aEntitya && intersectedElementa === aEntitya) {
             	n_touches += 1;
                 if ((n_touches % 4) == 0 ) {
                 	n_touches = 0;
@@ -31,14 +31,14 @@
     	AFRAME.registerComponent('markerhandler-b', {
 
     init: function() {
-        const animatedMarker = document.querySelector("#animated-marker-b");
-        const aEntity = document.querySelector("#animated-model-b");
+        const animatedMarkerb = document.querySelector("#animated-marker-b");
+        const aEntityb = document.querySelector("#animated-model-b");
         var n_touches = 0;
 
         // every click, we make our model grow in size :)
-        animatedMarker.addEventListener('click', function(ev, target){
-            const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-            if (aEntity && intersectedElement === aEntity) {
+        animatedMarkerb.addEventListener('click', function(ev, target){
+            const intersectedElementb = ev && ev.detail && ev.detail.intersectedEl;
+            if (aEntityb && intersectedElementb === aEntityb) {
             	n_touches += 1;
                 if ((n_touches % 4) == 0 ) {
                 	n_touches = 0;
@@ -52,14 +52,14 @@
     	AFRAME.registerComponent('markerhandler-c', {
 
     init: function() {
-        const animatedMarker = document.querySelector("#animated-marker-c");
-        const aEntity = document.querySelector("#animated-model-c");
+        const animatedMarkerc = document.querySelector("#animated-marker-c");
+        const aEntityc = document.querySelector("#animated-model-c");
         var n_touches = 0;
 
         // every click, we make our model grow in size :)
-        animatedMarker.addEventListener('click', function(ev, target){
-            const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-            if (aEntity && intersectedElement === aEntity) {
+        animatedMarkerc.addEventListener('click', function(ev, target){
+            const intersectedElementc = ev && ev.detail && ev.detail.intersectedEl;
+            if (aEntityc && intersectedElementc === aEntityc) {
             	n_touches += 1;
                 if ((n_touches % 4) == 0 ) {
                 	n_touches = 0;
@@ -73,14 +73,14 @@
     	AFRAME.registerComponent('markerhandler-d', {
 
     init: function() {
-        const animatedMarker = document.querySelector("#animated-marker-d");
-        const aEntity = document.querySelector("#animated-model-d");
+        const animatedMarkerd = document.querySelector("#animated-marker-d");
+        const aEntityd = document.querySelector("#animated-model-d");
         var n_touches = 0;
 
-        // every click, we make our model grow in size :)
-        animatedMarker.addEventListener('click', function(ev, target){
-            const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-            if (aEntity && intersectedElement === aEntity) {
+        // every click, we make our model grow in -size :)
+        animatedMarkerd.addEventListener('click', function(ev, target){
+            const intersectedElementd = ev && ev.detail && ev.detail.intersectedEl;
+            if (aEntityd && intersectedElementd === aEntityd) {
             	n_touches += 1;
                 if ((n_touches % 4) == 0 ) {
                 	n_touches = 0;
@@ -94,14 +94,14 @@
     	AFRAME.registerComponent('markerhandler-f', {
 
     init: function() {
-        const animatedMarker = document.querySelector("#animated-marker-f");
-        const aEntity = document.querySelector("#animated-model-f");
+        const animatedMarkerf = document.querySelector("#animated-marker-f");
+        const aEntityf = document.querySelector("#animated-model-f");
         var n_touches = 0;
 
         // every click, we make our model grow in size :)
-        animatedMarker.addEventListener('click', function(ev, target){
-            const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-            if (aEntity && intersectedElement === aEntity) {
+        animatedMarkerf.addEventListener('click', function(ev, target){
+            const intersectedElementf = ev && ev.detail && ev.detail.intersectedEl;
+            if (aEntity && intersectedElementf === aEntityf) {
             	n_touches += 1;
                 if ((n_touches % 4) == 0 ) {
                 	n_touches = 0;
