@@ -54,6 +54,7 @@
         </div>
         <div style="display:flex;justify-content:center;margin-top:10px">
         <a class="btn btn-danger" onclick="toonOplossing()">Toon de oplossing</a>
+        <a class="btn btn-light" onclick="kiesWoord()">Opnieuw</a>
     </div>
  
         <!-- Bootstrap core JS-->
@@ -91,7 +92,7 @@
 
                     l = l.slice(0);
                     huidige_opties = shuffle(l);
-                    huidige_opties = huidige_opties.slice(0,4);
+                    huidige_opties = huidige_opties.slice(0,3);
                     if (!huidige_opties.includes(woord[pos])){
                         huidige_opties[huidige_opties.length-1]=woord[pos];
                     }
