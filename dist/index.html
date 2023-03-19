@@ -127,7 +127,7 @@
                 // Intitializing the readFileLines with filename
                 fs.readFile('assets/woordenlijst.txt', function(err, data) {
                    if(err) throw err;
-                      var woordenlijst = data.toString().split(/\r?\n/);
+                   var woordenlijst = data.toString().split(/\r?\n/);
                 });
 
                 //const woordenlijst = fetch("https://github.com/srbdts/srbdts.github.io/blob/3e545f26b84a7b25ae5208d109697a9a293ff88b/dist/assets/woordenlijst.txt")
