@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    .tldr {
+      margin-left:50px;margin-right:50px;margin-top:0px;margin-bottom:10px;white-space:normal !important;word-wrap: break-word;
+    }
+    .noclick {pointer-events: none;}
+    .card {margin-bottom:2px;}
+    .subcard {margin-top:5px;margin-bottom:2px;margin-left:20px;margin-right:0px}
+    </style>
+
+    <title>(Fe)male voices on stage - Online Companion</title>
+  </head>
+  <body>
+<div class="container">
+  <div id="title" class="text-center" style="margin-bottom:30px;margin-top:80px">
+    <div class="display-4">(Fe)male voices on stage</div>
+    <div class="lead">Finding patterns in lottery rhymes of the late medieval and early moden Low Countries with and without AI</div>
+  </div>
+<blockquote class="blockquote text-right" style="margin-bottom:40px">
+  <p class="mb-0">Sara Budts<sup>(1)</sup>, Marly Terwisscha van Scheltinga<sup>(1,2)</sup> and Jeroen Puttevils<sup>(1)</sup></p>
+  <footer class="blockquote-footer"><sup>(1)</sup> Centre for Urban History (University of Antwerp); <sup>(2)</sup> Research Foundation Flanders (FWO)</footer>
+</blockquote>
+<p>
+This page serves as the methodological accompaniment to the paper “(Fe)male voices on stage”. Set against the backdrop of lotteries in the late medieval and early modern Low Countries, our paper zooms in on female voices in that society by means of a large-scale analysis of lottery rhymes. While lottery rhymes have a lot of potential as a historical source, they don't reveal their secrets easily. On the one hand, the sheer number of preserved lottery rhymes makes it hard for an individual researcher to study them all by means of close reading. On the other hand, their variability in spelling precludes a lot of digital approaches that are usually applied in cases where the primary source is extensive. We attempted to overcome both these issues by joining forces with GysBERT, a Pretrained Language Model of historical Dutch that is sufficiently robust to deal with our varied sources, but that has not yet made it into the toolbox of many (digital) historians.
+</p></br>
+
+
+  <div class="accordion" id="exampleAccordion" style="margin-bottom:50px">
+
+
+    <div class="card border-white" id="card1" style="padding-bottom:20px">
+      <div class="card-header bg-primary text-white" id="header1">
+        <h5 class="mb-0">
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#body1" aria-expanded="false" aria-controls="body1">1. Language and Artificial Intelligence</button>
+        </h5>
+      </div>
+
+      <div id="body1" class="collapse" aria-labelledby="header1" data-parent="#exampleAccordion">
+        <div class="card-body">
+          <p>
+          Ever since Artificial Intelligence emerged as a field, the ability to understand and produce human(like) language by means of machines has figured prominently on its agenda.  Despite this focus, however, seemingly fluent AI models like OpenAI’s ChatGPT  have emerged only very recently. ChatGPT and its colleagues (e.g. Google Translate,  DeepL,  Grammarly  etc.) are all indebted to a rapid series of technological breakthroughs in the late 2010s that culminated in the emergence of deep language models. These models are AI algorithms more commonly known as "neural networks" that have been "trained" by computer engineers to "learn" one or several languages. By processing enormous amounts of (human-written) texts in a given language, the models gradually capture the statistical regularities of that language to such an extent that they eventually have come to encode what words mean, how they are combined into grammatical sentences, which expressions come across as natural, how sentences combine into paragraphs and even into coherent texts. They do not have true linguistic intuition like humans do, but it is surprising how closely our linguistic knowledge can be approximated by the word probability computations of a very advanced, billion-parameter statistical model.</p>
+        </div>
+
+      <div class="card subcard" id="card1.1">
+        <div class="card-header bg-light" id="header1.1">
+          <h5 class="mb-0">
+            <button class="btn btn-link btn-light" type="button" data-toggle="collapse" data-target="#body1.1" aria-expanded="true" aria-controls="body1.1">
+              1.1 How are language models created?
+            </button>
+            <button class="btn btn-sm btn-warning text-white noclick">introductory</button>
+          </h5>
+        </div>
+          <div class="card-body collapse" id="body1.1">
+          <div id="tldr1.1" class="text-center" aria-labelledby="header1.1" data-parent="#card1.1">
+            <button class="btn btn-outline-dark text-black noclick tldr"><small>
+              <span class=text-primary>TLDR</span>: Neural networks are algorithms that turn input into output. They learn which input corresponds to which output all by themselves, as long as they are provided with plenty of input-output pairs as examples. Language models are neural networks that have been trained to turn linguistic input into linguistic output, and while doing so have gathered a large amount of implicit knowledge about the language they are learning, including semantics, grammar and text structure.</small>
+          </div>
+            <div id="text1.1" class="show" aria-labelledby="header1.1" data-parent="#header1">
+            <p>In order to understand how language models acquire a seemingly intuitive understanding of language, we first need to know what they are made of. Like all neural networks, language models are organized constellations of parameter settings that can be configured in a clever way to turn a given input into a desired output. You could train a network that takes pictures (or constellations of pixels) as input and outputs labels like "cat" or "dog", depending the animal in the picture. In the realm of language, you can train a network that takes tweets as input and outputs whether or not they contain hate speech. Importantly, the training process does not involve any pre-given, hard-coded rules: when the networks is provided with plenty of input-output pairs, it will compute the input-output mapping all by itself. It will figure out which features and which combinations of features in the input are the best cues to predict (some aspects of) the output.</p>
+            <p>One of the most common types of network architectures, the transformer model, learns through taking part in two different but simultaneous training tasks. In one task, the network receives a sentence in which one word is masked (i.e. the models input) and needs to reconstruct which word that was (i.e. the model’s output). In the other, the network receives two sentences from a text as input and needs to indicate whether the second immediately followed the first in the original text. At first, the guesses of the network will be completely off. After each failure, however, the network adjust its internal settings in such a way so that the next time it receives the same input, its output will be closer to the correct one. When this procedure is repeated over and over, the network will get better and better at these tasks as it learns to focus on the relevant aspects and figure out which combinations of input features best predict the right output class.</p>
+            <p>Interestingly, the actual input and output of the language models during these training tasks are merely a by-product of the training process. What matters most is the network itself, and especially its internal parameter settings after training. The missing-word and combine-the-clauses games are devised in such a way that in order to achieve a good result, the network needs to encode semantics, grammar and text coherence in its parameters in a highly abstract way. As humans, we cannot see how these linguistic features are captured in the parameter settings - there are too many of them and they aren't insightful to our eyes - but the algorithm’s ability to perform its linguistic training tasks indicates that overall the network has learnt the structure and semantics of its input language.</p>
+            </div>
+          </div>
+      </div>
+
+      <div class="card subcard" id="card1.2">
+        <div class="card-header bg-light" id="header1.2">
+          <h5 class="mb-0">
+            <button class="btn btn-link btn-light" type="button" data-toggle="collapse" data-target="#body1.2" aria-expanded="true" aria-controls="body1.2">
+              1.2 Why are language models useful?
+            </button>
+            <button class="btn btn-sm btn-warning text-white noclick">introductory</button>
+          </h5>
+        </div>
+          <div class="card-body collapse" id="body1.2">
+          <div id="tldr1.2" class="text-center" aria-labelledby="header1.2" data-parent="#card1.2">
+            <button class="btn btn-outline-dark tldr noclick"><small><span class=text-primary>TLDR</span>: Because language models have already learnt the basics of a language, you can easily incorporate them in classifiers to solve linguistic tasks. This is much faster, cheaper and less data-greedy than building an entirely new model.</small></button>
+
+          </div>
+            <div id="text1.2" class="show" aria-labelledby="header1.2" data-parent="#card1.2">
+            <p>The broad range of linguistic phenomena that these models pick up on during training nicely illustrates two of their fundamental traits. Firstly, they are highly flexible tools that can be used for an infinite number of tasks, ranging from spelling correction over document summarization to semi-automated discourse analysis. Secondly, they are no stand-alone products. Once they have been trained sufficiently, they're typically made available to a wider audience, who then incorporate them in their own algorithms to perform specific tasks they need to solve. This last aspect has been a huge game-changer for programming language enthusiasts. When a pretrained language model has been made available, they no longer need to teach a network what a language looks like from scratch. Instead,  they teach a simple classifier which parts of the language model’s existing knowledge are most informative for the task at hand. Instead of encoding new information in the model, they can train a much smaller model on top of the pretrained language model to get the relevant information out.</p>
+            <p>The versatility of these language models translates into a broad range of potential uses. If you want to search documents for fragments about an abstract topic like “health and disease”, for instance, you can collect a few passages where people are ill, attach a classifier to a language model and teach the classifier to retrieve similar passages from unseen text. In a sense, Pretrained Language Models form the middle ground between traditional reading and more widely spread distant-reading techniques based on word counts. Like a traditional reader, these models are sufficiently flexible to infer non-literal meanings and can abstract over spelling variation. Like a word count-based distant reading technique, these models are capable of sifting through large volumes of data at remarkable speed, and are excellent at picking up on recurrent patterns (and deviations from these patterns) in the datasets provided to them.</p>
+            <p>Historians who study recent events could use models of present day language to explore their topic of interest, as this  blogpost of the Programming Historian does for Brexit by means of GPT-2. Historical models for older language varieties are still a rarity, but their number is steadily growing. For nineteenth century English, four types of neural language models have been developed by Hosseini and others . Fonteyn and Manjavacas have developed two language models for even older historical texts: one for historical English - MacBERTh - and one for historical Dutch - GysBERT. Because the case study this text accompanies investigates Early Modern Dutch lottery rhymes, GysBERT has been of great use during our analysis. In the following section, GysBERT will be described in more detail.</p>
+            </div>
+          </div>
+      </div>
+
+        </div>
+      </div>
+
+        <div class="card border-white" id="card2" style="padding-bottom:20px">
+      <div class="card-header bg-primary text-white" id="header2">
+        <h5 class="mb-0">
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#body2" aria-expanded="false" aria-controls="body2">2. GysBERT</button>
+        </h5>
+      </div>
+
+      <div id="body2" class="collapse" aria-labelledby="header2" data-parent="#exampleAccordion">
+        <div class="card-body">
+          <p>
+The present section gives a brief overview of some relevant properties of the GysBERT model, developed by Manjavacas and Fonteyn at the University of Leiden. All information in this section comes from their paper that accompanied GysBERT's release</p>
+        </div>
+
+      <div class="card subcard" id="card2.1">
+        <div class="card-header bg-light" id="header2.1">
+          <h5 class="mb-0">
+            <button class="btn btn-link btn-light" type="button" data-toggle="collapse" data-target="#body2.1" aria-expanded="true" aria-controls="body2.1">
+              2.1 GysBERT's training data?
+            </button>
+            <button class="btn btn-sm btn-success text-white noclick">historical</button>
+          </h5>
+        </div>
+          <div class="card-body collapse" id="body2.1">
+          <div id="tldr2.1" class="text-center" aria-labelledby="header2.1" data-parent="#card2.1">
+            <button class="btn btn-outline-dark text-black noclick tldr"><small>
+              <span class=text-primary>TLDR</span>: GysBERT has been trained on texts from DBNL (1500-1950) and Delpher (1618-1999). The DBNL subset is smaller and cleaner, while Delpher is large but noisy. Fonteyn and Manjavacas used the quality digitisations of DBNL to discard poor quality Delpher texts for the final selection. There is less older than younger training material, and even the oldest data in GysBERTs training set is younger than most of our lottery rhymes</small></button>
+          </div>
+            <div id="text2.1" class="show" aria-labelledby="header2.1" data-parent="#header2">
+            <p>GysBERT has been trained on the Digital Library of Dutch Literature (DBNL ) and Delpher.  The DBNL is relatively small in size, but it contains a representative selection of historical Dutch literature that has been carefully curated and transcribed. Its temporal scope comprises the entire written history of the Dutch language, but was restricted to the years in between 1500 and 1950 for the sake of this project. Delpher contains OCRs of over 130 million scanned pages of historical books, newspapers and journals written between 1618 and 1999. Unfortunately, the Delpher OCRs are of varying quality. To assure that only data of sufficient quality made the cut, Fonteyn and Manjavacas used the small DBNL-dataset to assess the text quality of the Delpher-data. </p>
+            <p>The final training set for GysBERT was composed of all DBNL-texts from the 16th century onwards (1.3 billion tokens or words), supplemented with all Delpher texts of sufficient quality written between 1618 and 1950 (5.8 billion tokens). This totalled in a training set of about 7.1 billion tokens written between the 1500s and the 1900s, but with a heavy bias towards the later centuries. This is important in the light of the current research project: our earliest lottery rhymes (1446) predate GysBERTs oldest training material, and even the youngest rhymes (1606) don't find a temporal match in Delpher. In that respect, only the (scarce) DBLN part of GysBERTs training material is of similar age as our sources.</p>
+            </div>
+          </div>
+      </div>
+
+      <div class="card subcard" id="card2.2">
+        <div class="card-header bg-light" id="header2.2">
+          <h5 class="mb-0">
+            <button class="btn btn-link btn-light" type="button" data-toggle="collapse" data-target="#body2.2" aria-expanded="true" aria-controls="body2.2">
+              2.2 Tokenisation and model architecture
+            </button>
+            <button class="btn btn-sm btn-warning text-white noclick">introductory</button>
+          </h5>
+        </div>
+          <div class="card-body collapse" id="body2.2">
+          <div id="tldr2.2" class="text-center" aria-labelledby="header2.2" data-parent="#card2.2">
+            <button class="btn btn-outline-dark tldr noclick"><small><span class=text-primary>TLDR</span>: GysBERT uses a WordPiece tokenizer, which means that it does not process all words in their entirety, but can break them down into more elementary units if that is more useful. This greatly enhances GysBERTs flexibility, as it allows it to deal with extensive spelling variation and words that it has not been trained on.</small></button>
+
+          </div>
+            <div id="text2.2" class="show" aria-labelledby="header2.2" data-parent="#card2.2">
+            <p>Perhaps the most important part of GysBERTs implementation is its WordPiece tokenizer.  Tokenizers are used to split up running text in smaller chunks, often just words, which they then feed to the actual language model to process. Importantly, the tokenizer in GysBERT does not just break down a text into  words, but rather into frequently occurring fragments of words, which allows the model to infer the meaning of the an unknown word from its subparts. </p>
+            <p>Figure 1 illustrates this tokenisation process. It provides two original rhymes along with their tokenised version and English translation. Hyphens, marked in bold, indicate positions where the GysBERT tokenizer has split up words into fragments. Speakers of Dutch may notice that such fragments often occur in words were alternative spellings are plausible (e.g. altijt – altijd; thuijs – thuis) or where verbs are conjugated (betrowt, moechdi, gesent). In all such cases, the split allows the model to learn that some word fragments are interchangeable with others in certain contexts (e.g. “uij” en “ui” in “thuijs”) and how it should combine various fragments to infer the meaning of a word (e.g. ‘moechdi’ as ‘moogt’ (may) + ‘di’ (you)).</p>
+            <img src="figure1.png" class="img-fluid" alt="Responsive image">
+
+            <p>This appendix won't go into the architecture of GysBERT as a whole. We refer the interested reader to the original paper  or this blogpost,  which explains the structure of a transformer Language Model in detail.</p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="card border-white" id="card3" style="padding-bottom:20px">
+      <div class="card-header bg-primary text-white" id="header3">
+        <h5 class="mb-0">
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#body3" aria-expanded="false" aria-controls="body3">3. Our workflow</button>
+        </h5>
+      </div>
+
+      <div id="body3" class="collapse" aria-labelledby="header3" data-parent="#exampleAccordion">
+
+      <div class="card subcard" id="card3.1">
+        <div class="card-header bg-light" id="header3.1">
+          <h5 class="mb-0">
+            <button class="btn btn-link btn-light" type="button" data-toggle="collapse" data-target="#body3.1" aria-expanded="true" aria-controls="body3.1">
+              3.1 General aim
+            </button>
+            <button class="btn btn-sm btn-success text-white noclick">historical</button>
+          </h5>
+        </div>
+          <div class="card-body collapse" id="body3.1">
+            <div id="text3.1" class="show" aria-labelledby="header3.1" data-parent="#header3">
+            <p>The research we carried out can be divided into two stages. In the first stage, we charted the non-gender related variation present in our corpus of lottery rhymes. We tested if the lottery rhymes showed clear geographical, diachronic and/or social divides by letting a GysBERT-based classifier label our data for, respectively, the place where the ticket was bought, the year the lottery was held and the number of tickets bought by the participant. This stage was necessary in order to ensure that any difference that would later be found is really due to gender and could not be better explained by another variable. </p>
+            <p>In the second stage, we looked at gender specifically. For this stage too we extended GysBERT with several classifiers, this time with the participant’s gender as the output category, and trained the models to search for gender-specific discursive patterns. We built several such classifiers for different types of lottery rhymes. An overview of their performance is given in section 3.6.</p>
+            <p>Once our classifiers were trained to trace discursive differences between two categories, we used them to label a held-out set of rhymes and manually inspected the top sample for recurrent discursive structures (3.7).</p>
+            </div>
+          </div>
+      </div>
+
+      <div class="card subcard" id="card3.2">
+        <div class="card-header bg-light" id="header3.2">
+          <h5 class="mb-0">
+            <button class="btn btn-link btn-light" type="button" data-toggle="collapse" data-target="#body3.2" aria-expanded="true" aria-controls="body3.2">
+              3.2 Data collection, transcription and annotation
+            </button>
+            <button class="btn btn-sm btn-success text-white noclick">historical</button>
+          </h5>
+        </div>
+          <div class="card-body collapse" id="body3.2">
+            <div id="text3.2" class="show" aria-labelledby="header3.2" data-parent="#card3.2">
+            <p>The lottery rhymes in our dataset cover four different lotteries: Bruges (1446 and 1555), Utrecht (1464), Delft (1564) and Haarlem (1606). For all lotteries but Delft 1564, we harvested the rhymes from collector registers (“collecteursregisters”), in which clerks wrote down a name and a lottery rhyme for each person who wanted to participate in the lottery, as well as the number of tickets they bought. For the lottery held at Delft in 1564, the rhymes were obtained from the drawing register (“trekkersregister”), which only contains the rhymes that actually won a prize. As people who bought more tickets have a higher chance to win a prize, the selection of rhymes in the drawing registers may be skewed in favour of the richer participants.</p>
+            <p>All rhymes have been manually transcribed and labelled for gender, either on the basis of gender markers in the rhymes themselves, or on the basis of additional information on the buyer (e.g. their name or profession as written down in the registers).</p>
+            <img src="figure1.png" class="img-fluid" alt="Responsive image">
+            </div>
+          </div>
+      </div>
+
+      <div class="card subcard" id="card3.3">
+        <div class="card-header bg-light" id="header3.3">
+          <h5 class="mb-0">
+            <button class="btn btn-link btn-light" type="button" data-toggle="collapse" data-target="#body3.3" aria-expanded="true" aria-controls="body3.3">
+              3.3 Dataset
+            </button>
+            <button class="btn btn-sm btn-success text-white noclick">historical</button>
+          </h5>
+        </div>
+          <div class="card-body collapse" id="body3.3">
+            <div id="text3.3" class="show" aria-labelledby="header3.3" data-parent="#card3.3">
+            <p>The resulting dataset contains 11 332 rhymes. As Figure 2 indicates, there is a big difference in the number of rhymes we obtained for each lottery, but the proportion of rhymes submitted by women remains fairly constant, hovering between 34.4% (Utrecht 1464) and 40.8% (Haarlem 1606).</p>
+            <img src="figure2.png" class="img-fluid" alt="Responsive image">
+
+            <p>Apart from the number of lottery rhymes that have been preserved, the lotteries also differ in terms of the number of tickets that their participants tended to buy (cf. Table 1). This number went up considerably through time. As all tickets were read out loud to the audience, the more tickets someone bought, the more often their message would be spread.</p>
+
+            <table class="table table-hover table-sm">
+            <caption>Table 1. Average number of tickets bought per lottery</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Lottery</th>
+                  <th scope="col">Average no. of tickets bought</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1446 (Bruges)</td>
+                  <td>(no data)</td>
+                </tr>
+                <tr>
+                  <td>1464 (Utrecht)</td>
+                  <td>1.42</td>
+                </tr>
+                <tr>
+                  <td>1555 (Bruges)</td>
+                  <td>3.67</td>
+                </tr>
+                <tr>
+                  <td>1564 (Delft)</td>
+                  <td>6.89</td>
+                </tr>
+                <tr>
+                  <td>1606 (Haarlem)</td>
+                  <td>13.56</td>
+                </tr>
+                </tbody>
+              </table>
+              <p>The lotteries of Bruges (1555) and Harlem (1606) have a high share of tickets bought and collected remotely, by people not living in the town where the lottery was organised. Out of the 4034 tickets of the Harlem lottery, about 30% (1785) were bought in Amsterdam. The 1555 lottery held in Bruges varied even more in geographical scope (Table 2). </p>
+            <table class="table table-hover table-sm">
+            <caption>Table 2. Number of rhymes collected per town for the 1555 Bruges lottery</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Place of collection</th>
+                  <th scope="col">No. rhymes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Antwerp</td>
+                  <td>1694</td>
+                </tr>
+                <tr>
+                  <td>Mechelen</td>
+                  <td>323</td>
+                </tr>
+                <tr>
+                  <td>Bruges</td>
+                  <td>233</td>
+                </tr>
+                <tr>
+                  <td>Ghent</td>
+                  <td>168</td>
+                </tr>
+                <tr>
+                  <td>The Hague</td>
+                  <td>145</td>
+                </tr>
+                <tr>
+                  <td>Oudenaarde</td>
+                  <td>102</td>
+                </tr>
+                <tr>
+                  <td>Utrecht</td>
+                  <td>90</td>
+                </tr>
+                <tr>
+                  <td>Leuven</td>
+                  <td>78</td>
+                </tr>
+                <tr>
+                  <td>Amsterdam</td>
+                  <td>76</td>
+                </tr>
+                <tr>
+                  <td>Zierikzee</td>
+                  <td>47</td>
+                </tr>
+                <tr>
+                  <td>Middelburg</td>
+                  <td>44</td>
+                </tr>
+                <tr>
+                  <td>Lier</td>
+                  <td>43</td>
+                </tr>
+                <tr>
+                  <td>Goes</td>
+                  <td>41</td>
+                </tr>
+                <tr>
+                  <td>Haarlem</td>
+                  <td>32</td>
+                </tr>
+                <tr>
+                  <td>Borgerhout</td>
+                  <td>31</td>
+                </tr>
+                <tr>
+                  <td>Belle</td>
+                  <td>29</td>
+                </tr>
+                <tr>
+                  <td>Arnemuiden</td>
+                  <td>29</td>
+                </tr>
+                <tr>
+                  <td>Diksmuide</td>
+                  <td>20</td>
+                </tr>
+                <tr>
+                  <td>Kortrijk</td>
+                  <td>6</td>
+                </tr>
+          </tbody>
+        </table>
+            </div>
+          </div>
+        </div>
+
+      <div class="card subcard" id="card3.4">
+        <div class="card-header bg-light" id="header3.4">
+          <h5 class="mb-0">
+            <button class="btn btn-link btn-light" type="button" data-toggle="collapse" data-target="#body3.4" aria-expanded="true" aria-controls="body3.4">
+              3.4 Identification masking
+            </button>
+            <button class="btn btn-sm btn-success text-white noclick">historical</button>
+          </h5>
+        </div>
+          <div class="card-body collapse" id="body3.4">
+            <div id="text3.4" class="show" aria-labelledby="header3.4" data-parent="#card3.4">
+            <p>A considerable share of the lottery rhymes contain some sort of self-identification. It was fairly common for participants to mention their <span class="text-primary">name</span>, their <span class="text-success">profession</span>, their <span class="text-warning">marital status</span> or other references to their gender by means of <span style="color:orange">gendered nouns</span> or <span class="text-danger">pronouns</span> (cf. Figure 3).</p>
+
+            <img src="figure3.png" class="img-fluid" alt="Responsive image">
+            <p>When such rhymes were fed to our gender-classifier, the network very easily picked up on the overt gender markers and labelled them correctly (cf. section 3.6). While this proves that GysBERT is able to classify sentences based on morphological markers and word meaning, it reveals only little about any discursive peculiarities of the rhymes.</p>
+            <p>To force GysBERT to focus on discursive patterns instead, we semi-automatically removed all overt gender marking from the rhymes. We used GysBERT’s confidence scores to manually compile a list of overt gender markers and programmatically mask these to obtain two additional, anonymised, datasets. In the first, we replaced all overt gender markers by the same, generic “[IDENTIFIER]” tag; in the second, we replaced names, professions, gendered nouns and pronouns with the tags “[NAAM]”, “[BEROEP]”, “[GENDER_NOMEN]” and “[PRON]” respectively. </p>
+            <p>The lottery rhymes in our dataset cover four different lotteries: Bruges (1446 and 1555), Utrecht (1464), Delft (1564) and Haarlem (1606). For all lotteries but Delft 1564, we harvested the rhymes from collector registers (“collecteursregisters”), in which clerks wrote down a name and a lottery rhyme for each person who wanted to participate in the lottery, as well as the number of tickets they bought. For the lottery held at Delft in 1564, the rhymes were obtained from the drawing register (“trekkersregister”), which only contains the rhymes that actually won a prize. As people who bought more tickets have a higher chance to win a prize, the selection of rhymes in the drawing registers may be skewed in favour of the richer participants.</p>
+            <p>All rhymes have been manually transcribed and labelled for gender, either on the basis of gender markers in the rhymes themselves, or on the basis of additional information on the buyer (e.g. their name or profession as written down in the registers).</p>
+            </div>
+          </div>
+      </div>
+
+      <div class="card subcard" id="card3.5">
+        <div class="card-header bg-light" id="header3.5">
+          <h5 class="mb-0">
+            <button class="btn btn-link btn-light" type="button" data-toggle="collapse" data-target="#body3.5" aria-expanded="true" aria-controls="body3.5">
+              3.5 Classifier architecture and parameter settings
+            </button>
+            <button class="btn btn-sm btn-danger text-white noclick">advanced</button>
+          </h5>
+        </div>
+          <div class="card-body collapse" id="body3.5">
+            <div id="text3.5" class="show" aria-labelledby="header3.5" data-parent="#card3.5">
+
+            <p>To prepare our data for classification, we first removed all duplicates from the dataset and then tokenized our input data. We extended GysBERT’s WordPiece tokenizer with the five masking tokens of our anonymised dataset. We then randomly selected 80% of our data for training used the remaining 20% for validation. To prevent diachronic differences from affecting gender classification and vice versa, we stratified both training and validation data for gender and the year in which the lottery was held.</p>
+            <p>We built our classifiers on top of GysBERT  by means of a “BertForSequenceClassification” model from the Huggingface Transformers library . To decrease the impact of class imbalance in our dataset, we tweaked our loss function with balanced class weights obtained through scikit-learn . We finetuned our hyperparameters by means of WandB parameter sweeps : for every classifier we picked the batch size, number of epochs and learning rate that yielded the highest macro-average F1-score out of five runs. We trained the models on the Google GPUs available through Colab. When training was finished, we selected the model with the highest macro-average F1 score and let it predict class probabilities for all attestations in both the training and validation data. These datasets were then saved in Excel files along with the predicted probabilities and the attestations’ corresponding metadata.</p>
+            </div>
+          </div>
+      </div>
+
+
+      <div class="card subcard" id="card3.6">
+        <div class="card-header bg-light" id="header3.6">
+          <h5 class="mb-0">
+            <button class="btn btn-link btn-light" type="button" data-toggle="collapse" data-target="#body3.6" aria-expanded="true" aria-controls="body3.6">
+              3.6 Classification results
+            </button>
+            <button class="btn btn-sm btn-warning text-white noclick">introductory</button>
+          </h5>
+        </div>
+          <div class="card-body collapse" id="body3.6">
+            <div id="text3.6" class="show" aria-labelledby="header3.6" data-parent="#card3.6">
+
+            <p>Tables 3 and 4 give an overview of the selected hyperparameters and macro average F1 scores for the classifiers built, respectively, to get an insight into non-gender and gender related factors that might determine the discourse of lottery rhymes.</p>
+
+            <table class="table table-hover table-responsive table-sm">
+              <caption> Table 3. Classification results of non-gender based classifiers</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Classification</th>
+                  <th scope="col">No. classes</th>
+                  <th scope="col">Dataset size</th>
+                  <th scope="col">Batch size</th>
+                  <th scope="col">No. epochs</th>
+                  <th scope="col">Learning rate</th>
+                  <th scope="col">Mac. avg. F1</th>
+                  <th scope="col">Random baseline (macr. avg. F1)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Geographical</th>
+                  <td>9</td>
+                  <td>2 510</td>
+                  <td>16</td>
+                  <td>5</td>
+                  <td>3.97E-05</td>
+                  <td>0.569</td>
+                  <td>0.078</td>
+                </tr>
+                <tr>
+                  <th scope="row">Diachronic</th>
+                  <td>5</td>
+                  <td>11 338</td>
+                  <td>32</td>
+                  <td>3</td>
+                  <td>4.57E-05</td>
+                  <td>0.843</td>
+                  <td>0.161</td>
+                </tr>
+                <tr>
+                  <th scope="row">Social</th>
+                  <td>2</td>
+                  <td>5 850</td>
+                  <td>32</td>
+                  <td>6</td>
+                  <td>2.43E-05</td>
+                  <td>0.552</td>
+                  <td>0.435</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p>In the non-gender based category, we first trained a geographical classifier to predict which town a rhyme was collected from (cf. Table 2).  We then had a diachronic classifier predict which lottery a rhyme was from, the success rate of which illustrates the differences between the rhymes put in at different lotteries, and that diachronic change in the genre of lottery rhymes as a whole is likely. A round of manual inspection revealed that rhymes submitted to the first two lotteries were true outliers: 15th century lottery were much more likely to just contain the name, profession and/or family ties of the lottery participant than the rhymes put in for later lotteries.</p>
+            <p>Our social classifier, finally, was trained exclusively with rhymes from the 1606 lottery – the one we had most data for – and had to tease apart rhymes written by people who bought more lottery tickets than average from the ones put in by people who bought less tickets than average.</p>
+            <p>Our social classifier, finally, was trained exclusively with rhymes from the 1606 lottery – the one we had most data for – and had to tease apart rhymes written by people who bought more lottery tickets than average from the ones put in by people who bought less tickets than average</p>
+            <p>Our gender classifiers are all binary and have been trained to distinguish rhymes put in by men from those put in by women. Because our diachronic analysis revealed that 15th century lottery rhymes tended to contain only the participants’ names, we restricted the gender analysis to the rhymes collected in 1555, 1564 and 1606.</p>
+            <table class="table table-hover table-responsive table-sm">
+              <caption> Table 4. Classification results of gender based classifiers</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Classification</th>
+                  <th scope="col">Dataset size</th>
+                  <th scope="col">Batch size</th>
+                  <th scope="col">No. epochs</th>
+                  <th scope="col">Learning rate</th>
+                  <th scope="col">Mac. avg. F1</th>
+                  <th scope="col">Random baseline (macr. avg. F1)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Gender in rhyme (unmasked)</th>
+                  <td>5 3300</td>
+                  <td>16</td>
+                  <td>5</td>
+                  <td>4.16E-05</td>
+                  <td>0.967</td>
+                  <td>0.589</td>
+                </tr>
+                <tr>
+                  <th scope="row">Gender in rhyme (masked)</th>
+                  <td>5 265</td>
+                  <td>16</td>
+                  <td>6</td>
+                  <td>1.88E-05</td>
+                  <td>0.589</td>
+                  <td>0.497</td>
+                </tr>
+                <tr>
+                  <th scope="row">Gender in rhyme (masked ID)</th>
+                  <td>5 255</td>
+                  <td>8</td>
+                  <td>2</td>
+                  <td>3.39E-05</td>
+                  <td>0.577</td>
+                  <td>0.497</td>
+                </tr>
+                <tr>
+                  <th scope="row">Gender not in rhyme</th>
+                  <td>4 600</td>
+                  <td>16</td>
+                  <td>5</td>
+                  <td>1.43E-05</td>
+                  <td>0.526</td>
+                  <td>0.490</td>
+                </tr>
+                <tr>
+                  <th scope="row">All data of 1555</th>
+                  <td>3 235</td>
+                  <td>16</td>
+                  <td>4</td>
+                  <td>4.01E-05</td>
+                  <td>0.619</td>
+                  <td>0.494</td>
+                </tr>
+                <tr>
+                  <th scope="row">All data of 1606</th>
+                  <td>6 040</td>
+                  <td>8</td>
+                  <td>4</td>
+                  <td>3.89E-05</td>
+                  <td>0.542</td>
+                  <td>0.496</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>The first three gender classifiers were trained on the lottery rhymes with overt gender markings that received respectively no masking, category-based and unified “[IDENTIFIER]” masking. As their degrading performance indicates, the model was clearly able to pick up on lexical and morphosyntactic markers of gender when those were still present but had an increasingly difficult time as the degree of marking rose. Rhymes that did not have any gender marking to begin with (classifier no. 4), were the hardest to label. In all cases though, the eventual classifiers outperformed the random baseline. This illustrates that while morphosyntactic classifications are easier to make than thematic ones, our classifiers have still picked up discursive patterns that are more common in male than in female rhymes (or the other way around), making them a suitable tool to assess fine-grained discursive gender differences in.</p>
+            <p>The fifth and sixth classifiers, finally, are lottery-specific. They have been trained on “[IDENTIFIER]” masked rhymes with gender marking as well as rhymes without gender marking. The rhymes of the 1555 lottery where easier to gender than those of 1606, perhaps because the former lottery contained more rhymes with participant self-identification, which was the easiest case for the model to solve, as Table 4 shows.</p>
+            </div>
+          </div>
+</div>
+
+      <div class="card subcard" id="card3.7">
+        <div class="card-header bg-light" id="header3.7">
+          <h5 class="mb-0">
+            <button class="btn btn-link btn-light" type="button" data-toggle="collapse" data-target="#body3.7" aria-expanded="true" aria-controls="body3.7">
+              3.7 Post-training analysis and annotation
+            </button>
+            <button class="btn btn-sm btn-warning text-white noclick">introductory</button>
+          </h5>
+        </div>
+          <div class="card-body collapse" id="body3.7">
+            <div id="text3.7" class="show" aria-labelledby="header3.7" data-parent="#card3.7">
+            <p>Once we had trained our classifiers, we let it predict output labels for all rhymes. We then manually inspected the 100 rhymes it had ascribed to that category with the highest probability in the validation data and annotated these rhymes for recurrent patterns. All attested patterns were then cross-checked with the top-scoring rhymes in the training data and the misclassified instances from the validation data. If a pattern was attested consistently in these three datasets, we assumed that GysBERT had used the pattern as a classification clue. </p>
+
+            <p>This step was not always straightforward. The screenshots in Figure 4, for instance, show the 10 rhymes (unmasked) of, respectively, the 1555 and 1606 lotteries that were classified as most likely to have been written by a woman by a model that had only access to the masked rhymes. It is clear that the sample of 1606 is more coherent than that of 1555: the former has 4 variations on both the “benouwen-betrouwen” and the “vragen-dragen” rhymes, while the latter doesn’t seem to have any recurrent themes, apart from rhymes on names and identifiers. More templates have been found by carefully looking at a larger collection of rhymes with a high female probability, but it remains a matter of interpretation.</p>
+          <img src="figure4.png" class="img-fluid" alt="Responsive image">
+
+            <p>Once we had compiled a set of consistently recurrent patterns, we searched for them in the entire dataset in order to check if they were really more typical of the predicted category than the other. If necessary, we checked the significance of observed differences by means of chi-square tests (for nominal data) or unpaired t-tests (for numerical data). This manual  procedure revealed why GysBERT’s predictions on the masked dataset were so inaccurate: GysBERT’s performance was just above chance not because it did not pick up on the relevant patterns, but because these patterns themselves were distributed only just above chance. Virtually all of the rhymes were used by both women and men, at moderately differing rates. GysBERT labelled each template consistently with its correlated gender, but if that correlation is weak, the accuracy levels suffer.</p>
+            <p>We opted for a manual approach because we felt that the existing software libraries to visualise cue strength were insufficient. Off-the-shelve SHAP was too computationally expensive to run on our rhymes. It’s most promising spin-off HEDGE, which deals with multi-word chunks, was found unsuitable because it only works with chunks that consist of adjacent words, which is at odds with the templates our lottery rhymes abound with.  LIME, finally, requires the tokens of a sentence to be (locally) linearly separable, which, again, is not the case for a template-based genre like ours. </p>
+            </div>
+          </div>
+      </div>
+      </div>
+    </div>
+
+      <div class="card border-white" id="card1" style="padding-bottom:20px">
+      <div class="card-header bg-primary text-white" id="header4">
+        <h5 class="mb-0">
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#body4" aria-expanded="false" aria-controls="body4">4. Humans and machines: dividing the labour</button>
+        </h5>
+      </div>
+
+      <div id="body4" class="collapse" aria-labelledby="header4" data-parent="#exampleAccordion">
+        <div class="card-body">
+          <p>
+          EComputers are good at sifting through enormous piles of data at great speed while keeping track of recurrent patterns. Once they have gathered these patterns, however, they lack the metaknowledge needed to interpret and contextualise what they have found. Human domain experts do have the knowledge and cognitive skills that are required to make sense of the attested patterns, but they are not always good at finding these patterns to begin with. In the present section, we reflect on the road we have taken and how it complements a traditional close-reading analysis.</p>
+          <p>Discussing the benefits of our approach to one based fully on close reading is tricky. In principle, a human expert could have extracted any and all patterns that GysBERT found for us. This observation seriously questions the added value of our approach: perhaps it would have been better if we had spent all the effort we put into our digital methodology into close-reading instead? The answer is double. While our hybrid approach is not guaranteed to paint a completer picture of the case study at hand, it does make it more likely that the results that come out are even-handed. Just because humans could have extracted all patterns that GysBERT found, that doesn’t mean they would have.</p>
+          <p>The first hurdle for humans to conquer is simply the size of the dataset. Machines are fast. If a lot of data are available, it becomes not only too time-consuming for a single historian to carefully read them all, it becomes also increasingly difficult to keep track of all recurrent patterns. The truly salient patterns might still stand out, but the less prominent ones (e.g. those with a 60-40% distribution) are less likely to catch the historian’s eye. Even the brains of domain experts are not wired to keep consciously track of subtle differences in proportions, which is exactly what machines excel at.</p>
+          <p>A second issue to deal with, perhaps a more controversial one, is the historian’s domain knowledge. A historian’s previous knowledge about the case study at hand, even if well-founded, might implicitly nudge them towards those trends in the data they are expecting to appear and cause them to overlook significant, but counterintuitive trends. </p>
+          <p>A third way in which machines might do a better job than humans is the ease with which new data can be incorporated, existing analyses can be replicated and different hypotheses can be tested. If another collection of lottery rhymes becomes digitised, for instance, it would be easy to test if the gendered discursive patterns in that corpus match the ones we found in our current dataset. Of course, this methodology is not restricted to the genre of lottery rhymes: other case studies that rely on large amounts of historical texts could benefit of having (at least part of) their discourse analysis carried out by computational pattern seekers.</p>
+          <p>Nonetheless, our digital approach doesn’t come without a few caveats of its own. First, the feasibility of a hybrid approach like ours depends on the level of abstractness of the case study. If the relevant discursive patterns are truly abstract and require a great deal of interpretation, it is unlikely that today’s machines will be able to detect them. Secondly, even a hybrid approach requires a fair deal of manual labour in the form of data preparation. When the collection of a dataset is as time and labour intensive as it was for ours, it becomes hard to upscale the approach without additional digital tools like Transkribus,  even if more data exists.</p>
+          <p>Overall, however, we have tried to demonstrate the benefits of a hybrid approach, one which combines slow but profound human intelligence with fast but shallow artificial intelligence. Evidently, this is only one way of doing so. Other types of models, like the generative language models of the GPT-series, have entirely different application possibilities, provided that they are supervised with care and a critical mind. </p>
+          <p>Apart from being time-savers, artificially intelligent machines could help us to assess the representativity of certain trends, of what is typical or distinctive and what is not. It might enable us to focus on commonalities instead of the quirky outliers, but without human experts to interpret the patterns they give us, they will not be able to transcend the data-level and turn their findings into the coherent synthesis that the primary sources deserve.</p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
